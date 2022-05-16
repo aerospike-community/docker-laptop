@@ -52,6 +52,10 @@ Alternatively, you can start the menu by running the below script:
 * (debug) VM Console - attach to the VM serial console for debugging purposes
 * (debug) VM Console Log - display the console log of the VM (`cat ~/.kubelab/log/vm.log`)
 
+## Running Aerospike
+
+Follow [these instructions](https://docs.aerospike.com/server/operations/install/docker-desktop#procedure) to setup and deploy Aerospike.
+
 ## Manual non-menu usage instructions
 
 It is possible to use the KubeLab setup without the menu script. For full instructions, see [here](manual-use.md)
