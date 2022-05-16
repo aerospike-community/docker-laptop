@@ -8,135 +8,48 @@ On an Intel Mac, the system automatically uses Apple's Hypervisor instead, provi
 
 These instructions and any files referenced within come with no warranty. Use at your own risk.
 
-## Installation
+## Usage
 
-### Pre-requisites
+### Install KubeLab Virtual Machine
 
-* Install the required tools (homebrew, qemu emulator, wget, docker cli command and docker-compose command):
-
-```
-which brew; [ $? -ne 0 ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install wget
-brew install qemu
-brew install docker
-brew link --overwrite docker
-brew install docker-compose
-brew link --overwrite docker-compose
-```
-
-### Install Virtual Machine
+KubeLab is a pre-built Linux virtual machine with docker, and qemu wrapper scripts to allow for easy deployment.
 
 ```
 cd ~
 rm -f kubelab-qemu.tgz kubelab-scripts.tgz
-wget https://kubelab.s3.eu-west-1.amazonaws.com/kubelab-qemu.tgz
+curl https://kubelab.s3.eu-west-1.amazonaws.com/kubelab-qemu.tgz --output kubelab-qemu.tgz
 tar -zxvf kubelab-qemu.tgz
-wget https://kubelab.s3.eu-west-1.amazonaws.com/kubelab-scripts.tgz
+curl https://kubelab.s3.eu-west-1.amazonaws.com/kubelab-scripts.tgz --output kubelab-scripts.tgz
 tar -zxvf kubelab-scripts.tgz
+cp -a ~/.kubelab/KubeLab-Launcher.app /Applications/
 ```
 
-### Configure
+### Getting started
+
+If you have `Automator` installed on your MacOS (this should be available by default), you can start KubeLab menu by running `KubeLab-Launcher` application as you normally would any other app.
+
+Alternatively, you can start the menu by running the below script:
 
 ```
-cd ~/.kubelab
-vi etc/qemu-settings.sh
-### modify RAM and CPU lines to suit your needs and save the file
+~/.kubelab/bin/main.sh
 ```
 
-### Create virtual disk and resize it
+### Menu - Next steps
 
-Change the `50` in the below command to how many GB you want the VM to be able to use
+1. Create a data disk
+2. Resize the data disk
+3. Adjust CPU/RAM
+4. Start KubeLab - note that after the first-time start, you may need to restart the Terminal app before docker becomes available (`Cmd+q`)
+5. Stop KubeLab
 
-```
-cd ~/.kubelab
-./bin/qcow-make.sh
-./bin/qcow-resize.sh 50
-```
+### Menu - Other actions
 
-## Operating
+* Delete data disk - reset the VM to factory defaults - does not remove settings, such as CPU/RAM
+* Commit data disk to root volume - make the data disk, with current docker containers, the new factory-default
+* Delete disk, Start, Upgrade, Commit - destructive action for your containers; runs an upgrade on the VM and commits it to new factory-default
+* Advanced settings - adjust advanced settings for the VM
+* Kill KubeLab - for when "Stop KubeLab" doesn't work
 
-### Start
+## Manual non-menu usage instructions
 
-```
-~/.kubelab/bin/start.sh
-```
-
-If this is your first time starting a VM, either execute the below `source` commands, or simply Quit your terminal and reopen it. Future invocations of the start script do not require this any more.
-
-If using zsh: `source ~/.zshrc`
-
-If using bash: `source ~/.bashrc`
-
-### Status
-
-```
-~/.kubelab/bin/status.sh
-```
-
-### Stop
-
-```
-~/.kubelab/bin/stop.sh
-```
-
-### Kill (in case stop doesn't work)
-
-```
-~/.kubelab/bin/stop.sh kill
-```
-
-## Other actions
-
-### Update docker server version in the VM
-
-```
-~/.kubelab/bin/upgrade.sh docker
-```
-
-### Update all packages in the VM
-
-```
-~/.kubelab/bin/upgrade.sh all
-```
-
-### Attach to the VM host console (debugging only)
-
-```
-~/.kubelab/bin/console
-```
-
-### Remove image (reset VM) and recreate it
-
-```
-cd ~/.kubelab
-./bin/stop.sh
-./bin/qcow-del.sh
-./bin/qcow-make.sh
-./bin/qcow-resize.sh 50
-```
-
-### Get new scripts version when it becomes available
-
-This operation is safe and you will not loose any data.
-
-```
-cd ~
-~/.kubelab/bin/stop.sh
-~/.kubelab/bin/stop.sh kill
-rm -f kubelab-scripts.tgz
-wget https://kubelab.s3.eu-west-1.amazonaws.com/kubelab-scripts.tgz
-tar -zxvf kubelab-scripts.tgz
-```
-
-### Upgrade and rebase
-
-Below oneliner will remove your virtual disk and recreate. This will cause a reset of docker to factory defaults.
-
-The command will create a disk, resize it, start a VM, upgrade all packages, stop the VM and merge the upgraded version back to the `root` image.
-
-From this point any resets will go back to this stored stage as opposed to the one that was originally downloaded.
-
-```
-cd ~/.kubelab/bin
-./qcow-del.sh ; ./qcow-make.sh && ./qcow-resize.sh 50 && ./start.sh && sleep 5 && ./upgrade.sh all && sleep 5 && ./stop.sh && sleep 5 && ./qcow-commit.sh
-```
+It is possible to use the KubeLab setup without the menu script. For full instructions, see [here](manual-use.md)
