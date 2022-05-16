@@ -60,3 +60,7 @@ Follow [these instructions](https://docs.aerospike.com/server/operations/install
 ## Manual non-menu usage instructions
 
 It is possible to use the KubeLab setup without the menu script. For full instructions, see [here](manual-use.md)
+
+## Troubleshooting
+
+To submit a bug report, please open a GitHub issue with a description of the problem, also providing `~/.kubelab/log/vm.log` and `~/.kubelab/log/vmnet.log`
