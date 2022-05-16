@@ -44,6 +44,7 @@ Alternatively, you can start the menu by running the below script:
 
 ### Menu - Other actions
 
+* Download new scripts - download latest menu/helper scripts and install them
 * Delete data disk - reset the VM to factory defaults - does not remove settings, such as CPU/RAM
 * Commit data disk to root volume - make the data disk, with current docker containers, the new factory-default
 * Delete disk, Start, Upgrade, Commit - destructive action for your containers; runs an upgrade on the VM and commits it to new factory-default
