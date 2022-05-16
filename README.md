@@ -49,6 +49,8 @@ Alternatively, you can start the menu by running the below script:
 * Delete disk, Start, Upgrade, Commit - destructive action for your containers; runs an upgrade on the VM and commits it to new factory-default
 * Advanced settings - adjust advanced settings for the VM
 * Kill KubeLab - for when "Stop KubeLab" doesn't work
+* (debug) VM Console - attach to the VM serial console for debugging purposes
+* (debug) VM Console Log - display the console log of the VM (`cat ~/.kubelab/log/vm.log`)
 
 ## Manual non-menu usage instructions
 
