@@ -55,7 +55,7 @@ Alternatively, you can start the menu by running the below script:
 4. Start KubeLab - note that after the first-time start, you may need to restart the Terminal app before docker becomes available (`Cmd+q`). This is because `DOCKER_HOST` variable gets added to your shell's rc file and needs to be loaded.
 5. Stop KubeLab
 
-### Advanced usaged - Volumes and Snapshots
+### Advanced usage - Volumes and Snapshots
 
 The VM uses two volumes:
  * root located under `~/.kubelab/images/root/`
