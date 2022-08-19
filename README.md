@@ -4,6 +4,10 @@ The below manual explains how to deploy docker with x86_64 support on Mac M1 pro
 
 On an Intel Mac, the system automatically uses Apple's Hypervisor instead, providing good virtualization speed.
 
+## Version
+
+This manual is for version 3. For instructions on v1, see the v1 branch.
+
 ## Version upgrade
 
 This release (v3) must override v1 if previously used. Unfortunately, data between these 2 versions cannot be ported. Future releases will support updates without data/container loss.
