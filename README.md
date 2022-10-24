@@ -84,7 +84,9 @@ It is also possible to reset all data volumes, which will bring the system back 
 
 ## Running Aerospike
 
-Follow [these instructions](https://docs.aerospike.com/server/operations/install/docker-desktop#procedure) to setup and deploy Aerospike.
+To easily deploy Aerospike on a lab environment, you can use [aerolab](https://github.com/aerospike/aerolab)
+
+Alternatively, for a manual installation, follow [these instructions](https://docs.aerospike.com/server/operations/install/docker-desktop#start-a-container-and-the-database-by-using-this-image) to setup and deploy Aerospike.
 
 ## Manual non-menu usage instructions
 
