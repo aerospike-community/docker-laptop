@@ -8,7 +8,7 @@ Docker-Laptop is a docker VM deployment (docker-desktop replacement) that works 
 cd ~
 curl https://docker-laptop.s3.eu-west-1.amazonaws.com/docker-laptop.tgz --output docker-laptop.tgz
 tar -zxvf docker-laptop.tgz
-sudo cp -r ~/.docker-laptop/Docker\ Laptop.app /Applications/
+cp -r ~/.docker-laptop/Docker\ Laptop.app /Applications/
 rm -f docker-laptop.tgz
 ```
 
