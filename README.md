@@ -1,5 +1,7 @@
 # docker-laptop
 
+Docker-Laptop is a docker VM deployment (docker-desktop replacement) that works on any Mac architecture and can emulate both ARM64 and AMD64 mode of your choosing. If the chosen architecture matches your Mac architecture, the native hypervisor will be used.
+
 ## Installation
 
 ```
