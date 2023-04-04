@@ -20,5 +20,5 @@ sudo launchctl unload "/Library/LaunchDaemons/io.github.lima-vm.vde_vmnet.plist"
 sudo launchctl unload "/Library/LaunchDaemons/io.github.virtualsquare.vde-2.vde_switch.plist"
 sudo rm -f "/Library/LaunchDaemons/io.github.virtualsquare.vde-2.vde_switch.plist"
 sudo rm -f "/Library/LaunchDaemons/io.github.lima-vm.vde_vmnet.plist"
-sudo rm -f /opt/vde
+sudo rm -rf /opt/vde
 ```
