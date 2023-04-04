@@ -10,6 +10,10 @@ sudo cp -a ~/.docker-laptop/Docker\ Laptop.app /Applications/
 rm -f docker-laptop.tgz
 ```
 
+## Migration from kubelab
+
+If migrating from KubeLab, follow [this manual](https://github.com/aerospike-community/docker-amd64-mac-m1/blob/docker-laptop/migrate-from-kubelab.md)
+
 ## Usage
 
 If you have `Automator` installed on your MacOS (this should be available by default), you can start KubeLab menu by running `Docker Laptop` application as you normally would any other app.
